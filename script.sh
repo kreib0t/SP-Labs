@@ -12,7 +12,7 @@ the main (primary) group must be specified separately"
 while :; do
 	echo "ENTER USERNAME: "
 	read name
-	id -u $name 2> /dev/null || var=$? && groups $name 2> /dev/null && getent group $name | awk -F":" '{print $1}' || echo "user with this name does not exist" 
+	id -u $name 2> /dev/null || var=$? && groups $name 2> /dev/null && var="" && getent group $name | awk -F":" '{print $1}' || echo "user with this name does not exist" 
 	echo "if you want to exit press Y or another key if you want to continue: "
 	read answer
 	case "$answer" in
